@@ -1,16 +1,16 @@
 === NC Size Chart for Woocommerce ===
-Contributors: Nabaraj Chapagain
+Contributors: giucu91
 Tags: Size Chart for Woocommerce, Product Chart for Woocommerce, Size Chart, Product Chart 
 Requires at least: 4.0
-Tested up to: 4.7.3
-Stable tag: 1.0.6
+Tested up to: 5.7
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin allow you to use size charts to products on woocommerce.
 
 == Description ==
- If you are hosting Woocommerce store and wanna give your customers some more information about your product then NC Size Chart for Woocommerce is a great piece of plugin to give you peace of mind.This plugin allow you to create unlimited charts and display directly to products or categories.
+If you are hosting Woocommerce store and wanna give your customers some more information about your product then NC Size Chart for Woocommerce is a great piece of plugin to give you peace of mind.This plugin allow you to create unlimited charts and display directly to products or categories.
 
 NC Size Chart for Woocommerce allow you to show the corresponding values of the product dimensions,height,weight,meters etc. The size guide table allows you to add multiple rows or column and insert your size guide info without requiring any html knowledge.
 
@@ -43,13 +43,10 @@ Decide whether you wanna show the chart as modal pop up or additional chart.
 7. Tab example single product page.
 
 == Installation Guide ==
-
 1. Upload the plugin to the '/wp-content/plugins/' directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Add chart from "Charts" menu at the left hand side menu bar
 4. Manage default setting through Size Chart >  settings
-
-
 
 == Changelog ==
 = 1.0.0 =
@@ -74,3 +71,6 @@ Decide whether you wanna show the chart as modal pop up or additional chart.
 * New Version Release
 * bug fixes
 
+= 1.1.0 =
+* Added sanitization and escapes
+* Partially reorganized the code.

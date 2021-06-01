@@ -163,9 +163,6 @@ class productsize_chart {
 		$this->loader->add_filter( 'woocommerce_product_tabs', $plugin_public, 'productsize_chart_new_product_tab' );
 		$this->loader->add_action( 'woocommerce_before_single_product', $plugin_public, 'productsize_chart_check_popup_button_position' );
 		$this->loader->add_action( 'wp_head', $plugin_public, 'productsize_chart_custom_style' );
-		
-		
-
 
 	}
 

@@ -40,8 +40,8 @@ table.inputtable td, table.inputtable th {
 table.inputtable th {
 	background-color: #f1f1f1;
 	border-color: #ddd;
-    border-top:none;
-    border-bottom: 2px solid #ddd;
+	border-top:none;
+	border-bottom: 2px solid #ddd;
 }
 /* Table body inputs */
 table.inputtable td input[type=text] {
@@ -57,13 +57,13 @@ table.inputtable.wh tbody tr:nth-child(1), table.inputtable.wh tbody tr:nth-chil
 }
 /* Hide borders when not needed hack */
 table.inputtable th:first-child, table.inputtable td:first-child {
-    border-left:none;
+	border-left:none;
 }
 table.inputtable tr:last-child td {
-    border-bottom:none;
+	border-bottom:none;
 }
 /* Mobile Landscape */
-@media only screen and (max-width : 480px) { 
+@media only screen and (max-width : 480px) {
 	/* Table single cells */
 	table.inputtable td, table.inputtable th {
 		min-width: 40px;height: 80px;

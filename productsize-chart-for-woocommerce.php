@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @wordpress-plugin
  * Plugin Name:       Product Size Chart for Woocommerce
