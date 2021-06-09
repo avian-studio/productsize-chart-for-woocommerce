@@ -42,7 +42,7 @@ endif;
 	 // chart 1 content goes here
 if ( $enable_additional_chart == 1 ) :
 
-	 $title_additional = $this->default_assets['productsize-chart-additional-title'];
+	$title_additional = $this->default_assets['productsize-chart-additional-title'];
 	$title2            = ! empty( $title_additional ) ? $title_additional : 'h3';
 
 	if ( $assets['chart-1'] ) :
@@ -53,7 +53,7 @@ if ( $enable_additional_chart == 1 ) :
 		$chart_c1    = $assets['chart-1'][0]['chart-table'];
 
 		echo '<div class="add-chart-1">';
-		printf( '<%1$s id="modal1Title">%2$s</%3$s>', $title2, $title_c1, $title2 );
+		printf( '<%1$s id="modal1Title">%2$s</%3$s>', esc_attr($title2), wp_kses_post($title_c1), esc_attr($title2) );
 
 		if ( $image_c1 ) :
 			$img = wp_get_attachment_image_src( $image_c1, 'full' );
@@ -83,7 +83,7 @@ endif;
 		$chart_c2    = $assets['chart-2'][0]['chart-table-1'];
 
 		echo '<div class="add-chart-2">';
-		printf( '<%1$s id="modal1Title">%2$s</%3$s>', $title2, $title_c2, $$title2 );
+		printf( '<%1$s id="modal1Title">%2$s</%3$s>', esc_attr($title2), wp_kses_post($title_c2), esc_attr($title2) );
 		if ( $image_c2 ) :
 			 $img = wp_get_attachment_image_src( $image_c2, 'full' );
 			 echo '<div class="chart-2-image ' . esc_attr($position_c2) . '">

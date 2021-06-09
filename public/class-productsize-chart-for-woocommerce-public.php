@@ -188,8 +188,8 @@ class PRODUCT_SIZE_CHART_FOR_WOOCOMMERCE_Public {
 		}
 
 		if ( $assets['position'] == 'tab' ) {
-			$tabs['custom_tab'] = array(
-				'title'    => __( $assets['label'], 'woocommerce' ),
+			$tabs['pcfw_tab'] = array(
+				'title'    => $assets['label'],
 				'priority' => 50,
 				'callback' => array( $this, 'productsize_chart_new_product_tab_content' ),
 			);
@@ -243,13 +243,13 @@ class PRODUCT_SIZE_CHART_FOR_WOOCOMMERCE_Public {
 		<style>
 			#size-chart {clear:both; margin:10px 0; width:100%}
 			#size-chart tr th{font-weight:bold;}
-			#size-chart tr td, #size-chart tr th{ color:<?php echo ! empty( $assets['text-color'] ) ? $assets['text-color'] : '#000'; ?>;
+			#size-chart tr td, #size-chart tr th{ color:<?php echo ! empty( $assets['text-color'] ) ? esc_attr($assets['text-color']) : '#000'; ?>;
 			padding:8px; text-align:left;}
 			.remodal p{color:<?php echo esc_attr( $assets['text-color'] ) ?>;}
 			h2#modal1Title,h3#modal1Title{color:<?php echo esc_attr( $assets['title-color'] ); ?>;}
 			#size-chart tr:nth-child(odd){ background:#ebe9eb; }
 			.remodal-overlay {background: <?php echo esc_attr( $this->productsize_chart_hex2rgba( $assets['overlay'], 0.7 ) ) ?> !important; z-index:9999;}
-		   	.remodal{padding:<?php echo $assets['padding'] . 'px'; ?>;}
+		   	.remodal{padding:<?php echo absint($assets['padding']) . 'px'; ?>;}
 		</style>    
 		<?php
 	}

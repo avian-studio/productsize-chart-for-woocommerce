@@ -1,4 +1,4 @@
-=== NC Size Chart for Woocommerce ===
+=== Product Size Chart for Woocommerce ===
 Contributors: giucu91
 Tags: Size Chart for Woocommerce, Product Chart for Woocommerce, Size Chart, Product Chart 
 Requires at least: 4.0
@@ -10,9 +10,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 This plugin allow you to use size charts to products on woocommerce.
 
 == Description ==
-If you are hosting Woocommerce store and wanna give your customers some more information about your product then NC Size Chart for Woocommerce is a great piece of plugin to give you peace of mind.This plugin allow you to create unlimited charts and display directly to products or categories.
+If you are hosting Woocommerce store and wanna give your customers some more information about your product then Product Size Chart for Woocommerce is a great piece of plugin to give you peace of mind. This plugin allow you to create unlimited charts and display directly to products or categories.
 
-NC Size Chart for Woocommerce allow you to show the corresponding values of the product dimensions,height,weight,meters etc. The size guide table allows you to add multiple rows or column and insert your size guide info without requiring any html knowledge.
+Product Size Chart for Woocommerce allow you to show the corresponding values of the product dimensions, height, weight, meters etc. The size guide table allows you to add multiple rows or column and insert your size guide info without requiring any html knowledge.
 
 Enable additional chart so you can display more then one table to your product page.
 
@@ -20,7 +20,7 @@ Select the look of your chart by choosing table styles, colors, buttons style, t
 
 With this plugin you can assign single chart to multiple products or directly assign charts to product categories.
 
-Decide whether you wanna show the chart as modal pop up or additional chart.
+Decide whether you wanna show the chart as modal pop up or in a tab.
 
 = Features =   	
 1. Create unlimited Charts.
@@ -49,28 +49,29 @@ Decide whether you wanna show the chart as modal pop up or additional chart.
 4. Manage default setting through Size Chart >  settings
 
 == Changelog ==
-= 1.0.0 =
-* Initial Release
-
-= 1.0.1 =
-* New Version Release
-
-= 1.0.2 =
-* New Version Release
-
-= 1.0.3 =
-* New Version Release
-
-= 1.0.4 =
-* New Version Release
-
-= 1.0.5 =
-* New Version Release
+= 1.1.0 =
+* Added sanitization and escapes
+* Reorganized the code.
+* Changed ownership
 
 = 1.0.6 =
 * New Version Release
 * bug fixes
 
-= 1.1.0 =
-* Added sanitization and escapes
-* Partially reorganized the code.
+= 1.0.5 =
+* New Version Release
+
+= 1.0.4 =
+* New Version Release
+
+= 1.0.3 =
+* New Version Release
+
+= 1.0.2 =
+* New Version Release
+
+= 1.0.1 =
+* New Version Release
+
+= 1.0.0 =
+* Initial Release

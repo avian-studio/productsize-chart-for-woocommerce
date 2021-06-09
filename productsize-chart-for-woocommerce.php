@@ -5,7 +5,6 @@
  * Description:       This plugin allow you to use size charts to products on woocommerce.
  * Version:           1.1.0
  * Author:            Ciobanu George
- * Author URI:        http://ncplugins.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       productsize-chart-for-woocommerce

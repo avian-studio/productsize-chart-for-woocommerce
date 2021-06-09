@@ -385,6 +385,7 @@ class productsize_chart_Admin {
 		$this->productsize_chart_default_settings['productsize-chart-overlay-opacity']         = '0.7';
 		$this->productsize_chart_default_settings['productsize-chart-button-class']            = '';
 		$this->productsize_chart_default_settings['productsize-chart-button-label']            = 'Size Guide';
+		
 		update_option( 'productsize_chart_settings', $this->productsize_chart_default_settings );
 
 	}

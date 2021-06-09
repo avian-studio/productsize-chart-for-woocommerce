@@ -30,14 +30,14 @@ class productsize_chart_Public {
 	 */
 	private $version;
 
-		/**
-		 * The elements or assets of plugin.
-		 *
-		 * @since    1.0.0
-		 * @access   private
-		 * @var      array    $assets    The assets/settings of plugin like color,content etc.
-		 */
-		private $assets;
+	/**
+	 * The elements or assets of plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      array    $assets    The assets/settings of plugin like color,content etc.
+	 */
+	private $assets;
 
 	/**
 	 * The default elements or assets of plugin.
@@ -358,11 +358,11 @@ class productsize_chart_Public {
 		if ( $assets['position'] == 'popup' ) {
 			$default_assets = $this->default_assets;
 			?>
-			<div class="button-wrapper"><a href="#modal" class="<?php echo ! empty( $default_assets['productsize-chart-button-class'] ) ? $default_assets['productsize-chart-button-class'] : 'chart-button'; ?>" id="chart-button"><?php _e( $default_assets['productsize-chart-button-label'], $this->plugin_name ); ?></a></div>
+			<div class="button-wrapper"><a href="#modal" class="<?php echo ! empty( $default_assets['productsize-chart-button-class'] ) ? esc_attr($default_assets['productsize-chart-button-class']) : 'chart-button'; ?>" id="chart-button"><?php esc_html_e( $default_assets['productsize-chart-button-label'], $this->plugin_name ); ?></a></div>
 			<div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
 				<button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
 				<div>
-					<?php require 'includes/productsize-chart-contents.php'; ?>
+					<?php include 'includes/productsize-chart-contents.php'; ?>
 				</div>
 			</div>
 			<?php
@@ -393,26 +393,25 @@ class productsize_chart_Public {
 		?>
 		<style type="text/css">
 			#size-chart {clear:both; margin:10px 0; width:100%}#size-chart tr th{font-weight:bold;}
-			#size-chart tr td,#size-chart tr th{color:<?php echo $color; ?>;
+			#size-chart tr td,#size-chart tr th{color:<?php echo esc_attr($color); ?>;
 			padding:8px; text-align:left;}
-			.remodal p{color:<?php echo $color; ?>; text-align:justify;}
-				#modal1Title{color:<?php echo $title_color; ?>; margin-bottom:15px; font-size:25px; text-align:left}
+			.remodal p{color:<?php echo esc_attr($color); ?>; text-align:justify;}
+				#modal1Title{color:<?php echo esc_attr($title_color); ?>; margin-bottom:15px; font-size:25px; text-align:left}
 			<?php if ( $table_style == 'style-1' ) { ?>
 					#size-chart tr:nth-child(odd){background:#ebe9eb;	}
-				<?php
-			} else {
-				?>
+			<?php } else { ?>
 						#size-chart tr th{background:#000000; color:#ffffff; text-align:center;}
 						#size-chart tr td,#size-chart tr th{border:1px solid #CCCCCC; text-align:center;}
-					<?php } ?>
-					.remodal-overlay {background:<?php echo $overlay_bg; ?> !important; z-index:9999;}
-					.remodal{padding:<?php echo $padding; ?>;}
+					
+					.remodal-overlay {background:<?php echo esc_attr($overlay_bg); ?> !important; z-index:9999;}
+					.remodal{padding:<?php echo esc_attr($padding); ?>;}
 					.button-wrapper{margin:7px 0;}
-						#chart-button{background:<?php echo $button_bg; ?>; color:<?php echo $button_color; ?>; padding:7px 10px;font-weight: 700;
+						#chart-button{background:<?php echo $button_bg; ?>; color:<?php echo esc_attr($button_color); ?>; padding:7px 10px;font-weight: 700;
 					border-radius: 3px; -webkit-border-radius: 3px;-moz-border-radius: 3px; text-decoration:none; }
-							#chart-button:hover{background:<?php echo $button_hover_bg; ?>;  }
-				</style>    
-				<?php
+							#chart-button:hover{background:<?php echo esc_attr($button_hover_bg); ?>;  }
+			<?php } ?>
+		</style>    
+		<?php
 	}
 
 
