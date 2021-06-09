@@ -18,10 +18,10 @@ global $pagenow;
 
 ?>
 <div class="wrap ajax_cart">
-	<h1><?php esc_html_e( 'Size Chart Settings', $this->plugin_name ); ?></h1>
+	<h1><?php esc_html_e( 'Size Chart Settings', 'productsize-chart-for-woocommerce' ); ?></h1>
 	<form method="post" action="<?php admin_url( 'admin.php?page=productsize_chart' ); ?>" enctype="multipart/form-data">
 		<h2 class="nav-tab-wrapper woo-nav-tab-wrapper">
-			<a href="<?php echo admin_url( 'admin.php?page=productsize_chart&tab=pop-up' ); ?>" class="nav-tab nav-tab-active"><?php esc_html_e( 'Default Settings', $this->plugin_name ); ?></a>
+			<a href="<?php echo admin_url( 'admin.php?page=productsize_chart&tab=pop-up' ); ?>" class="nav-tab nav-tab-active"><?php esc_html_e( 'Default Settings', 'productsize-chart-for-woocommerce' ); ?></a>
 		</h2>
 		<table class="form-table">
 			
@@ -32,7 +32,7 @@ global $pagenow;
 				?>
 				
 				<tr>
-					<th><?php _e( 'Chart Heading', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Chart Heading', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<select name="productsize-chart-title">
 							<option 
@@ -72,14 +72,14 @@ global $pagenow;
 				</tr>
 				
 				<tr>
-					<th><?php esc_html_e( 'Enable Additional Chart', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Enable Additional Chart', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						
 						<input type="checkbox" name="productsize-chart-enable-additional-chart"  value="1" <?php echo $this->productsize_chart_settings['productsize-chart-enable-additional-chart'] == 1 ? 'checked="checked"' : ''; ?>/>
 					</td>
 				</tr>       
 				<tr>
-					<th><?php esc_html_e( 'Additional Chart Heading', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Additional Chart Heading', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<select name="productsize-chart-additional-title">
 							<option 
@@ -120,7 +120,7 @@ global $pagenow;
 				</tr>
 				
 				<tr>
-					<th><?php esc_html_e( 'Title Color', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Title Color', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<input type="hidden" name="productsize-chart-title-color" id="color-picker1" value="<?php echo esc_attr( $this->productsize_chart_settings['productsize-chart-title-color'] ); ?>"/>
 						
@@ -128,14 +128,14 @@ global $pagenow;
 				</tr>
 
 				<tr>
-					<th><?php esc_html_e( 'Text Color', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Text Color', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<input type="hidden" name="productsize-chart-text-color" id="color-picker1" value="<?php echo esc_attr( $this->productsize_chart_settings['productsize-chart-text-color'] ); ?>"/>
 						
 					</td>
 				</tr>
 				<tr>
-					<th><?php esc_html_e( 'Default Table Style', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Default Table Style', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<select name="productsize-chart-table-style">
 							<option 
@@ -143,13 +143,13 @@ global $pagenow;
 							if ( $this->productsize_chart_settings['productsize-chart-table-style'] == 'style-1' ) {
 								echo "selected='selected'";}
 							?>
-							 value="style-1"><?php esc_html_e( 'Style 1', $this->plugin_name ); ?></option> 
+							 value="style-1"><?php esc_html_e( 'Style 1', 'productsize-chart-for-woocommerce' ); ?></option> 
 							<option 
 							<?php
 							if ( $this->productsize_chart_settings['productsize-chart-table-style'] == 'style-2' ) {
 								echo "selected='selected'";}
 							?>
-							 value="style-2"><?php esc_html_e( 'Style 2', $this->plugin_name ); ?></option> 
+							 value="style-2"><?php esc_html_e( 'Style 2', 'productsize-chart-for-woocommerce' ); ?></option> 
 							
 							
 						</select>
@@ -158,11 +158,11 @@ global $pagenow;
 					</td>
 				</tr>
 				<tr>
-					<th colspan="2"><h2><?php esc_html_e( 'Pop Up Settings', $this->plugin_name ); ?></h2></th>   
+					<th colspan="2"><h2><?php esc_html_e( 'Pop Up Settings', 'productsize-chart-for-woocommerce' ); ?></h2></th>   
 				</tr>
 				
 				<tr>
-					<th><?php esc_html_e( 'Button Background Color', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Button Background Color', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<input type="hidden" name="productsize-chart-button-bg-color" id="color-picker1" value="<?php echo esc_attr( $this->productsize_chart_settings['productsize-chart-button-bg-color'] ); ?>"/>
 						
@@ -170,7 +170,7 @@ global $pagenow;
 				</tr>
 				
 				<tr>
-					<th><?php esc_html_e( 'Button Hover Background Color', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Button Hover Background Color', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<input type="hidden" name="productsize-chart-button-hover-bg" id="color-picker1" value="<?php echo esc_attr( $this->productsize_chart_settings['productsize-chart-button-hover-bg'] ); ?>"/>
 						
@@ -178,7 +178,7 @@ global $pagenow;
 				</tr>
 				
 				<tr>
-					<th><?php esc_html_e( 'Button Text Color', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Button Text Color', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<input type="hidden" name="productsize-chart-button-text-color" id="color-picker1" value="<?php echo esc_attr( $this->productsize_chart_settings['productsize-chart-button-text-color'] ); ?>"/>
 						
@@ -186,7 +186,7 @@ global $pagenow;
 				</tr>
 				
 				<tr>
-					<th><?php esc_html_e( 'Modal Overlay Color', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Modal Overlay Color', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<input type="hidden" name="productsize-chart-overlay-color" id="color-picker1" value="<?php echo esc_attr( $this->productsize_chart_settings['productsize-chart-overlay-color'] ); ?>"/>
 						
@@ -194,7 +194,7 @@ global $pagenow;
 				</tr>
 				
 				<tr>
-					<th><?php esc_html_e( 'Overlay Opacity', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Overlay Opacity', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<input type="text" name="productsize-chart-overlay-opacity"  value="<?php echo esc_attr( $this->productsize_chart_settings['productsize-chart-overlay-opacity'] ); ?>"/>
 						
@@ -202,7 +202,7 @@ global $pagenow;
 				</tr>
 				
 				<tr>
-					<th><?php esc_html_e( 'Button Class', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Button Class', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<input type="text" name="productsize-chart-button-class"  value="<?php echo esc_attr( $this->productsize_chart_settings['productsize-chart-button-class'] ); ?>"/>
 						
@@ -210,7 +210,7 @@ global $pagenow;
 				</tr>
 				
 				<tr>
-					<th><?php esc_html_e( 'Button Label', $this->plugin_name ); ?></th>
+					<th><?php esc_html_e( 'Button Label', 'productsize-chart-for-woocommerce' ); ?></th>
 					<td>
 						<input type="text" name="productsize-chart-button-label"  value="<?php echo esc_attr( $this->productsize_chart_settings['productsize-chart-button-label'] ); ?>"/>
 					</td>
@@ -220,7 +220,7 @@ global $pagenow;
 			?>
 		</table>
 		<p class="submit">
-			<input type="submit" class="button-primary" name="productsize_chart_submit" value="<?php esc_attr_e( 'Save Changes', $this->plugin_name ); ?>" />
+			<input type="submit" class="button-primary" name="productsize_chart_submit" value="<?php esc_attr_e( 'Save Changes', 'productsize-chart-for-woocommerce' ); ?>" />
 			
 		</p>
 		

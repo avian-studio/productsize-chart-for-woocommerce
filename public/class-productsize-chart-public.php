@@ -122,7 +122,7 @@ class productsize_chart_Public {
 				echo '<tr>';
 				for ( $i = 0; $i < count( $chart_details ); $i++ ) {
 
-					echo ( $first == 0 ) ? '<th>' . __( $chart_details[ $i ], $this->plugin_name ) . '</th>' : '<td>' . __( $chart_details[ $i ], $this->plugin_name ) . '</td>';
+					echo ( $first == 0 ) ? '<th>' . wp_kses_post( $chart_details[ $i ] ) . '</th>' : '<td>' . wp_kses_post( $chart_details[ $i ] ) . '</td>';
 				}
 				echo '</tr>';
 				$first++;
@@ -358,7 +358,7 @@ class productsize_chart_Public {
 		if ( $assets['position'] == 'popup' ) {
 			$default_assets = $this->default_assets;
 			?>
-			<div class="button-wrapper"><a href="#modal" class="<?php echo ! empty( $default_assets['productsize-chart-button-class'] ) ? esc_attr($default_assets['productsize-chart-button-class']) : 'chart-button'; ?>" id="chart-button"><?php esc_html_e( $default_assets['productsize-chart-button-label'], $this->plugin_name ); ?></a></div>
+			<div class="button-wrapper"><a href="#modal" class="<?php echo ! empty( $default_assets['productsize-chart-button-class'] ) ? esc_attr($default_assets['productsize-chart-button-class']) : 'chart-button'; ?>" id="chart-button"><?php esc_html( $default_assets['productsize-chart-button-label'] ); ?></a></div>
 			<div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
 				<button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
 				<div>

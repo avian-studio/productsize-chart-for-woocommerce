@@ -89,7 +89,7 @@ class productsize_chart_Admin {
 	 */
 
 	public function productsize_chart_menu() {
-		$settings = add_submenu_page( 'edit.php?post_type=chart', esc_html__( 'NC Plugins', $this->plugin_name ), esc_html__( 'Settings', $this->plugin_name ), 'manage_options', 'productsize_chart', array( $this, 'productsize_chart_settings_form' ) );
+		$settings = add_submenu_page( 'edit.php?post_type=chart', esc_html__( 'NC Plugins', 'productsize-chart-for-woocommerce' ), esc_html__( 'Settings', 'productsize-chart-for-woocommerce' ), 'manage_options', 'productsize_chart', array( $this, 'productsize_chart_settings_form' ) );
 		add_action( "load-{$settings}", array( $this, 'productsize_chart_settings_page' ) );
 	}
 
@@ -103,25 +103,25 @@ class productsize_chart_Admin {
 	public function productsize_chart_register_post_type_chart() {
 
 		$labels = array(
-			'name'               => esc_html_x( 'Charts', 'post type general name', $this->plugin_name ),
-			'singular_name'      => esc_html_x( 'Chart', 'post type singular name', $this->plugin_name ),
-			'menu_name'          => esc_html_x( 'Size Chart', 'admin menu', $this->plugin_name ),
-			'name_admin_bar'     => esc_html_x( 'Chart', 'add new on admin bar', $this->plugin_name ),
-			'add_new'            => esc_html_x( 'Add Chart', 'chart', $this->plugin_name ),
-			'add_new_item'       => esc_html__( 'Add New Chart', $this->plugin_name ),
-			'new_item'           => esc_html__( 'New Chart', $this->plugin_name ),
-			'edit_item'          => esc_html__( 'Edit Chart', $this->plugin_name ),
-			'view_item'          => esc_html__( 'View Chart', $this->plugin_name ),
-			'all_items'          => esc_html__( 'Size Charts', $this->plugin_name ),
-			'search_items'       => esc_html__( 'Search Charts', $this->plugin_name ),
-			'parent_item_colon'  => esc_html__( 'Parent Charts:', $this->plugin_name ),
-			'not_found'          => esc_html__( 'No chart found.', $this->plugin_name ),
-			'not_found_in_trash' => esc_html__( 'No charts found in Trash.', $this->plugin_name ),
+			'name'               => esc_html_x( 'Charts', 'post type general name', 'productsize-chart-for-woocommerce' ),
+			'singular_name'      => esc_html_x( 'Chart', 'post type singular name', 'productsize-chart-for-woocommerce' ),
+			'menu_name'          => esc_html_x( 'Size Chart', 'admin menu', 'productsize-chart-for-woocommerce' ),
+			'name_admin_bar'     => esc_html_x( 'Chart', 'add new on admin bar', 'productsize-chart-for-woocommerce' ),
+			'add_new'            => esc_html_x( 'Add Chart', 'chart', 'productsize-chart-for-woocommerce' ),
+			'add_new_item'       => esc_html__( 'Add New Chart', 'productsize-chart-for-woocommerce' ),
+			'new_item'           => esc_html__( 'New Chart', 'productsize-chart-for-woocommerce' ),
+			'edit_item'          => esc_html__( 'Edit Chart', 'productsize-chart-for-woocommerce' ),
+			'view_item'          => esc_html__( 'View Chart', 'productsize-chart-for-woocommerce' ),
+			'all_items'          => esc_html__( 'Size Charts', 'productsize-chart-for-woocommerce' ),
+			'search_items'       => esc_html__( 'Search Charts', 'productsize-chart-for-woocommerce' ),
+			'parent_item_colon'  => esc_html__( 'Parent Charts:', 'productsize-chart-for-woocommerce' ),
+			'not_found'          => esc_html__( 'No chart found.', 'productsize-chart-for-woocommerce' ),
+			'not_found_in_trash' => esc_html__( 'No charts found in Trash.', 'productsize-chart-for-woocommerce' ),
 		);
 
 		$args = array(
 			'labels'             => $labels,
-			'description'        => esc_html__( 'Description.', $this->plugin_name ),
+			'description'        => esc_html__( 'Description.', 'productsize-chart-for-woocommerce' ),
 			'public'             => true,
 			'publicly_queryable' => true,
 			'show_ui'            => true,
@@ -149,15 +149,15 @@ class productsize_chart_Admin {
 	public function productsize_chart_add_meta_box() {
 
 		// chart setting meta box
-		add_meta_box( 'chart-settings', esc_html__( 'Chart Settings', $this->plugin_name ), array( $this, 'productsize_chart_render_meta_box_content' ), 'chart', 'advanced', 'high' );
+		add_meta_box( 'chart-settings', esc_html__( 'Chart Settings', 'productsize-chart-for-woocommerce' ), array( $this, 'productsize_chart_render_meta_box_content' ), 'chart', 'advanced', 'high' );
 
 		if ( 1 == $this->productsize_chart_settings['productsize-chart-enable-additional-chart'] ) {
 			// additional meta box
-			add_meta_box( 'additional-chart', esc_html__( 'Additional Chart', $this->plugin_name ), array( $this, 'productsize_chart_render_add_meta_box_content' ), 'chart', 'advanced', 'high' );
+			add_meta_box( 'additional-chart', esc_html__( 'Additional Chart', 'productsize-chart-for-woocommerce' ), array( $this, 'productsize_chart_render_add_meta_box_content' ), 'chart', 'advanced', 'high' );
 		}
 
 		// meta box to select chart in product page
-		add_meta_box( 'additional-chart', esc_html__( 'Select Chart', $this->plugin_name ), array( $this, 'productsize_chart_render_select_chart_content' ), 'product', 'side', 'default' );
+		add_meta_box( 'additional-chart', esc_html__( 'Select Chart', 'productsize-chart-for-woocommerce' ), array( $this, 'productsize_chart_render_select_chart_content' ), 'product', 'side', 'default' );
 	}
 
 
@@ -355,8 +355,8 @@ class productsize_chart_Admin {
 				'meta-box-image',
 				'meta_image',
 				array(
-					'title'  => esc_html__( 'Upload an Image', $this->plugin_name ),
-					'button' => esc_html__( 'Use this image', $this->plugin_name ),
+					'title'  => esc_html__( 'Upload an Image', 'productsize-chart-for-woocommerce' ),
+					'button' => esc_html__( 'Use this image', 'productsize-chart-for-woocommerce' ),
 				)
 			);
 			wp_enqueue_script( 'meta-box-image' );

@@ -38,7 +38,7 @@ $args        = array(
 );
 $posts_array = get_posts( $args );
 if ( ! is_array( $posts_array ) || sizeof( $posts_array ) == 0 ) {
-	printf( __( 'No charts found.click <a href="%s">here</a> to create you first chart', $this->plugin_name ), admin_url( 'edit.php?post_type=chart' ) );
+	printf( __( 'No charts found.click <a href="%s">here</a> to create you first chart', 'productsize-chart-for-woocommerce' ), admin_url( 'edit.php?post_type=chart' ) );
 	return;
 }
 ?>
@@ -46,7 +46,7 @@ if ( ! is_array( $posts_array ) || sizeof( $posts_array ) == 0 ) {
 	<div id="field">
 		<div class="field-item">
 			<select name="prod-chart" id="prod-chart">
-				<option value=""><?php esc_html_e( 'Select Chart', $this->plugin_name ); ?></option>
+				<option value=""><?php esc_html_e( 'Select Chart', 'productsize-chart-for-woocommerce' ); ?></option>
 				<?php foreach ( $posts_array as $posts ) { ?>
 					<option value="<?php echo esc_attr( $posts->ID ); ?>" <?php selected( $posts->ID, $chart_id ); ?>><?php echo esc_html( $posts->post_title ); ?></option>
 					<?php } ?>

@@ -225,7 +225,7 @@ class PRODUCT_SIZE_CHART_FOR_WOOCOMMERCE_Public {
 			return;
 		}
 		if ( $assets['position'] == 'popup' ) { ?>
-			<div><a href="#modal" class="button alt" id="chart-button"><?php esc_html_e( 'Size Chart', $this->plugin_name ); ?></a></div>
+			<div><a href="#modal" class="button alt" id="chart-button"><?php esc_html_e( 'Size Chart', 'productsize-chart-for-woocommerce' ); ?></a></div>
 			<div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
 		  		<button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
 		  		<div>
