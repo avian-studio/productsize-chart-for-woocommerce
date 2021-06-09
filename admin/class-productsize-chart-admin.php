@@ -89,7 +89,7 @@ class productsize_chart_Admin {
 	 */
 
 	public function productsize_chart_menu() {
-		$settings = add_submenu_page( 'edit.php?post_type=chart', esc_html__( 'NC Plugins', 'productsize-chart-for-woocommerce' ), esc_html__( 'Settings', 'productsize-chart-for-woocommerce' ), 'manage_options', 'productsize_chart', array( $this, 'productsize_chart_settings_form' ) );
+		$settings = add_submenu_page( 'edit.php?post_type=chart', esc_html__( 'Product Size Chart Settings', 'productsize-chart-for-woocommerce' ), esc_html__( 'Settings', 'productsize-chart-for-woocommerce' ), 'manage_options', 'productsize_chart', array( $this, 'productsize_chart_settings_form' ) );
 		add_action( "load-{$settings}", array( $this, 'productsize_chart_settings_page' ) );
 	}
 
