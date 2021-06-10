@@ -3,7 +3,7 @@
  * @wordpress-plugin
  * Plugin Name:       Product Size Chart for Woocommerce
  * Description:       This plugin allow you to use size charts to products on woocommerce.
- * Version:           1.1.0
+ * Version:           1.1.1
  * Author:            Ciobanu George
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

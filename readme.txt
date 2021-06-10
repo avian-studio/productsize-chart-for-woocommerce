@@ -3,7 +3,7 @@ Contributors: giucu91
 Tags: Size Chart for Woocommerce, Product Chart for Woocommerce, Size Chart, Product Chart 
 Requires at least: 4.0
 Tested up to: 5.7
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,8 @@ Select the look of your chart by choosing table styles, colors, buttons style, t
 With this plugin you can assign single chart to multiple products or directly assign charts to product categories.
 
 Decide whether you wanna show the chart as modal pop up or in a tab.
+
+Original plugin was developed by: Nabaraj Chapagain( https://profiles.wordpress.org/nabaraj-chapagain/ ). On 06-09-2020 I’ve taken over and I will keep maintaning this plugin.
 
 = Features =   	
 1. Create unlimited Charts.
@@ -49,6 +51,10 @@ Decide whether you wanna show the chart as modal pop up or in a tab.
 4. Manage default setting through Size Chart >  settings
 
 == Changelog ==
+
+= 1.1.1 =
+* Fixed popup's button label.
+
 = 1.1.0 =
 * Added sanitization and escapes
 * Reorganized the code.
