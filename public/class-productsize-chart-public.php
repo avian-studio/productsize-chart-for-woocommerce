@@ -172,46 +172,40 @@ class productsize_chart_Public {
 	 */
 	public function productsize_chart_id_by_categories( $id ) {
 
-		global $wpdb;
-		$terms       = wp_get_post_terms( $id, 'product_cat' );
-		$chart_terms = array();
-		if ( $terms ) :
-			foreach ( $terms as $term ) {
-				$chart_terms[] = $term->term_id;
+		$chart_terms = wp_get_post_terms( $id, 'product_cat', array( 'fields' => 'ids' ) );
+		$productsize_chart_category_args = array(
+			'post_type'      => 'chart',
+			'posts_per_page' => '-1',
+			'posts_status'   => 'publish',
+			'orderby'        => 'ID',
+			'order'          => 'DESC',
+		);
+
+		$productsize_chart_array = get_posts( $productsize_chart_category_args );
+		$arr                     = array();
+		$chart_id                = '';
+		if ( sizeof( $productsize_chart_array ) > 0 ) :
+			foreach ( $productsize_chart_array as $new_chart_details ) {
+				$chart_categories = get_post_meta( $new_chart_details->ID, 'chart-categories', true );
+				if ( $chart_categories ) :
+					foreach ( $chart_categories as $key => $value ) {
+						$arr[ $key ] = $value;
+					}
+				endif;
+				
+				if ( sizeof( $chart_terms ) > 0 && sizeof( $arr ) > 0 ) :
+					if ( array_intersect( $arr, $chart_terms ) ) {
+						$chart_id = $new_chart_details->ID;
+
+					}
+					if ( $chart_id ) {
+						break;
+					}
+				endif;
 			}
-			endif;
-			$productsize_chart_category_args = array(
-				'post_type'      => 'chart',
-				'posts_per_page' => '-1',
-				'posts_status'   => 'publish',
-				'orderby'        => 'ID',
-				'order'          => 'DESC',
+		endif;
 
-			);
-			$productsize_chart_array = get_posts( $productsize_chart_category_args );
-			$arr                     = array();
-			$chart_id                = '';
-			if ( sizeof( $productsize_chart_array ) > 0 ) :
-				foreach ( $productsize_chart_array as $new_chart_details ) {
-					$chart_categories = get_post_meta( $new_chart_details->ID, 'chart-categories', true );
-					if ( $chart_categories ) :
-						foreach ( $chart_categories as $key => $value ) {
-							$arr[ $key ] = $value;
-						}
-						endif;
-					if ( sizeof( $chart_terms ) > 0 && sizeof( $arr ) > 0 ) :
-						if ( array_intersect( $arr, $chart_terms ) ) {
-							$chart_id = $new_chart_details->ID;
-
-						}
-						if ( $chart_id ) {
-							break;
-						}
-							endif;
-				}
-						endif;
-
-						return $chart_id;
+		return $chart_id;
 	}
 
 	/**
@@ -242,6 +236,7 @@ class productsize_chart_Public {
 		else :
 			$chart_id = $this->productsize_chart_id_by_categories( $id );
 		endif;
+
 		return $chart_id;
 
 	}
@@ -263,27 +258,18 @@ class productsize_chart_Public {
 		}
 
 		$position = $assets['button-position'];
-		if ( $position == 'before-summary-text' ) :
-			$hook     = 'woocommerce_single_product_summary';
-			$priority = 11;
-		endif;
-		if ( $position == 'after-add-to-cart' ) :
-			$hook     = 'woocommerce_single_product_summary';
-			$priority = 31;
-		endif;
-		if ( $position == 'before-add-to-cart' ) :
-			$hook     = 'woocommerce_single_product_summary';
-			$priority = 29;
-		endif;
-		if ( $position == 'after-product-meta' ) :
-			$hook     = 'woocommerce_single_product_summary';
-			$priority = 41;
-		endif;
-		if ( ! $position ) :
-			$hook     = 'woocommerce_single_product_summary';
-			$priority = 31;
-		endif;
+		$priority = 31;
 
+		if ( 'before-summary-text' == $position ) {
+			$priority = 11;
+		}elseif ( 'before-add-to-cart' == $position ) {
+			$priority = 29;
+		}elseif ( 'after-product-meta' == $position ) {
+			$priority = 41;
+		}
+
+		$hook     = apply_filters( 'productsize_chart_button_hook', 'woocommerce_single_product_summary', $assets );
+		$priority = apply_filters( 'productsize_chart_button_priority', $priority, $assets );
 		add_action( $hook, array( $this, 'productsize_chart_button' ), $priority );
 
 	}
@@ -355,10 +341,15 @@ class productsize_chart_Public {
 			return;
 		}
 
+		$class = 'chart-button';
+		if ( ! empty( $default_assets['productsize-chart-button-class'] ) ) {
+			$class .= ' ' . $default_assets['productsize-chart-button-class'];
+		}
+
 		if ( $assets['position'] == 'popup' ) {
 			$default_assets = $this->default_assets;
 			?>
-			<div class="button-wrapper"><a href="#modal" class="<?php echo ! empty( $default_assets['productsize-chart-button-class'] ) ? esc_attr($default_assets['productsize-chart-button-class']) : 'chart-button'; ?>" id="chart-button"><?php echo esc_html( $default_assets['productsize-chart-button-label'] ); ?></a></div>
+			<div class="button-wrapper"><a href="#modal" class="<?php echo esc_attr( $class );?>" id="chart-button"><?php echo esc_html( $default_assets['productsize-chart-button-label'] ); ?></a></div>
 			<div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
 				<button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
 				<div>
@@ -396,20 +387,22 @@ class productsize_chart_Public {
 			#size-chart tr td,#size-chart tr th{color:<?php echo esc_attr($color); ?>;
 			padding:8px; text-align:left;}
 			.remodal p{color:<?php echo esc_attr($color); ?>; text-align:justify;}
-				#modal1Title{color:<?php echo esc_attr($title_color); ?>; margin-bottom:15px; font-size:25px; text-align:left}
+			#modal1Title{color:<?php echo esc_attr($title_color); ?>; margin-bottom:15px; font-size:25px; text-align:left}
+
 			<?php if ( $table_style == 'style-1' ) { ?>
-					#size-chart tr:nth-child(odd){background:#ebe9eb;	}
-			<?php } else { ?>
-						#size-chart tr th{background:#000000; color:#ffffff; text-align:center;}
-						#size-chart tr td,#size-chart tr th{border:1px solid #CCCCCC; text-align:center;}
-					
-					.remodal-overlay {background:<?php echo esc_attr($overlay_bg); ?> !important; z-index:9999;}
-					.remodal{padding:<?php echo esc_attr($padding); ?>;}
-					.button-wrapper{margin:7px 0;}
-						#chart-button{background:<?php echo $button_bg; ?>; color:<?php echo esc_attr($button_color); ?>; padding:7px 10px;font-weight: 700;
-					border-radius: 3px; -webkit-border-radius: 3px;-moz-border-radius: 3px; text-decoration:none; }
-							#chart-button:hover{background:<?php echo esc_attr($button_hover_bg); ?>;  }
+				#size-chart tr:nth-child(odd){background:#ebe9eb;}
+			<?php }else{ ?>
+				#size-chart tr th{background:#000000; color:#ffffff; text-align:center;}
+				#size-chart tr td,#size-chart tr th{border:1px solid #CCCCCC; text-align:center;}
 			<?php } ?>
+			
+			.remodal-overlay {background:<?php echo esc_attr($overlay_bg); ?> !important; z-index:9999;}
+			.remodal{padding:<?php echo esc_attr($padding); ?>;}
+			.remodal .remodal-close{top:<?php echo esc_attr($padding); ?>;right:<?php echo esc_attr($padding); ?>;}
+			.button-wrapper{margin:7px 0;}
+			#chart-button{background:<?php echo $button_bg; ?>; color:<?php echo esc_attr($button_color); ?>; padding:7px 10px;font-weight: 700;
+			border-radius: 3px; -webkit-border-radius: 3px;-moz-border-radius: 3px; text-decoration:none; }
+			#chart-button:hover{background:<?php echo esc_attr($button_hover_bg); ?>;  }
 		</style>    
 		<?php
 	}

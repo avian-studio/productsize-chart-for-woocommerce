@@ -120,21 +120,6 @@ $chart_table        = get_post_meta( $post->ID, 'chart-table', true );
 		</div>
 	</div>
 	<div id="field">
-		<div class="field-title"><h4><?php esc_html_e( 'Chart Categories', 'productsize-chart-for-woocommerce' ); ?></h4></div> 
-		<div class="field-description"><?php esc_html_e( 'Select categories for chart to appear on.', 'productsize-chart-for-woocommerce' ); ?></div>
-		<div class="field-item">
-			<select name="chart-categories[]" id="chart-categories" multiple="multiple" >
-				<?php $term = get_terms( 'product_cat', array() ); ?>
-				<?php
-				if ( $term ) :
-					foreach ( $term as $cat ) {
-						?>
-				<option value="<?php echo esc_attr( $cat->term_id ); ?>" <?php selected( in_array( $cat->term_id, $chart_categories ) ); ?>><?php echo esc_html( $cat->name ); ?></option>
-									<?php } endif; ?>
-			</select>
-		</div>
-	</div>
-	<div id="field">
 		<div class="field-title"><h4><?php esc_html_e( 'Chart Table', 'productsize-chart-for-woocommerce' ); ?></h4></div> 
 		<div class="field-description"><?php esc_html_e( 'Add/Edit chart below', 'productsize-chart-for-woocommerce' ); ?></div>
 		<div class="field-item">

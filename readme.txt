@@ -3,7 +3,7 @@ Contributors: giucu91
 Tags: Size Chart for Woocommerce, Product Chart for Woocommerce, Size Chart, Product Chart 
 Requires at least: 4.0
 Tested up to: 5.7
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,9 @@ Original plugin was developed by: Nabaraj Chapagain( https://profiles.wordpress.
 4. Manage default setting through Size Chart >  settings
 
 == Changelog ==
+
+= 1.1.2 =
+* Fixed "Button Not Displaying" bug.
 
 = 1.1.1 =
 * Fixed popup's button label.

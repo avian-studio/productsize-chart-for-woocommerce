@@ -23,6 +23,7 @@
 
 .remodal-overlay {
   background: rgba(43, 46, 56, 0.9);
+  cursor: pointer;
 }
 
 .remodal-overlay.remodal-is-opening,
@@ -45,6 +46,7 @@
 
 .remodal-wrapper {
   padding: 10px 10px 0;
+  cursor: pointer;
 }
 
 /* Default theme styles of the modal dialog */
@@ -58,6 +60,7 @@
   transform: translate3d(0, 0, 0);
   color: #2b2e38;
   background: #fff;
+  cursor: initial;
 }
 
 .remodal.remodal-is-opening,
@@ -88,7 +91,7 @@
 .remodal-close {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
 
   display: block;
   overflow: visible;

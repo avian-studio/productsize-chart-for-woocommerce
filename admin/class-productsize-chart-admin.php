@@ -150,6 +150,7 @@ class productsize_chart_Admin {
 
 		// chart setting meta box
 		add_meta_box( 'chart-settings', esc_html__( 'Chart Settings', 'productsize-chart-for-woocommerce' ), array( $this, 'productsize_chart_render_meta_box_content' ), 'chart', 'advanced', 'high' );
+		add_meta_box( 'productchart-categories', esc_html__( 'Chart Categories', 'productsize-chart-for-woocommerce' ), array( $this, 'show_product_categories' ), 'chart', 'side', 'low' );
 
 		if ( 1 == $this->productsize_chart_settings['productsize-chart-enable-additional-chart'] ) {
 			// additional meta box
@@ -339,6 +340,27 @@ class productsize_chart_Admin {
 		require_once 'includes/productsize-chart-select-chart-form.php';
 	}
 
+	public function show_product_categories( $post ){
+
+		$chart_categories   = (array) get_post_meta( $post->ID, 'chart-categories', true );
+		?>
+
+		<div class="field-description"><?php esc_html_e( 'Select categories for chart to appear on.', 'productsize-chart-for-woocommerce' ); ?></div>
+		<div class="field-item">
+			<select name="chart-categories[]" id="chart-categories" multiple="multiple" >
+				<?php $term = get_terms( 'product_cat', array() ); ?>
+				<?php
+				if ( $term ) {
+					foreach ( $term as $cat ) { ?>
+					<option value="<?php echo esc_attr( $cat->term_id ); ?>" <?php selected( in_array( $cat->term_id, $chart_categories ) ); ?>><?php echo esc_html( $cat->name ); ?></option>
+				<?php } } ?>
+			</select>
+		</div>
+
+		<?php
+
+	}
+
 
 
 	/**
@@ -467,6 +489,11 @@ class productsize_chart_Admin {
 	 */
 	public function productsize_chart_admin_enqueue_styles() {
 
+		$screen = get_current_screen();
+		if ( 'chart' != $screen->post_type ) {
+			return;
+		}
+
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
@@ -491,6 +518,11 @@ class productsize_chart_Admin {
 	 * @since    1.0.0
 	 */
 	public function productsize_chart_admin_enqueue_scripts() {
+
+		$screen = get_current_screen();
+		if ( 'chart' != $screen->post_type ) {
+			return;
+		}
 
 		/**
 		 * This function is provided for demonstration purposes only.

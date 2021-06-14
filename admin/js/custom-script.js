@@ -7,7 +7,7 @@ jQuery( document ).ready(
 		$( '#color-picker1,#text-color,#title-color,#overlay-color' ).wpColorPicker();
 		$( '#chart-categories' ).select2(
 			{
-
+				width: '100%',
 				maximumSelectionLength: 100,
 				theme: "classic"
 
