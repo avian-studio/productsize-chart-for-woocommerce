@@ -83,6 +83,10 @@ class productsize_chart {
 	 */
 	private function load_dependencies() {
 
+		if ( is_admin() ) {
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-product-size-chart-custom-table.php';
+		}
+
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
@@ -144,6 +148,8 @@ class productsize_chart {
 		$this->loader->add_action( 'save_post',$plugin_admin, 'productsize_chart_save');
 		$this->loader->add_action( 'save_post',$plugin_admin, 'productsize_chart_select_save');
 		$this->loader->add_action( 'admin_enqueue_scripts',$plugin_admin, 'productsize_chart_image_enqueue');
+
+		$this->loader->add_filter( 'views_edit-chart',$plugin_admin, 'custom_list_table');
 
 	}
 

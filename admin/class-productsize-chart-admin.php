@@ -542,4 +542,11 @@ class productsize_chart_Admin {
 
 	}
 
+	public function custom_list_table(){
+		global $wp_list_table;
+		$table = new Product_Size_Chart_Custom_Table();
+		$table->prepare_items();
+		$wp_list_table = $table;
+	}
+
 }
